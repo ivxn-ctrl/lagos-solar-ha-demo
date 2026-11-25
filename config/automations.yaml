@@ -1,0 +1,34 @@
+- id: '1794559337836'
+  alias: Grid off, shed load
+  description: ''
+  triggers:
+  - trigger: switch.turned_off
+    target:
+      entity_id: input_boolean.power_grid
+    options:
+      behavior: each
+      for: 00:00:00
+  conditions: []
+  actions:
+  - action: light.turn_off
+    metadata: {}
+    target:
+      device_id: d6f0254438d165b8c2cccabf4e9482df
+    data: {}
+  mode: single
+- id: '1794560395895'
+  alias: turn off 30
+  description: ''
+  triggers:
+  - trigger: numeric_state
+    entity_id:
+    - input_number.battery_percent
+    below: 30
+  conditions: []
+  actions:
+  - action: light.turn_off
+    metadata: {}
+    target:
+      device_id: 5e631350a82a246972b0c8298105d9e7
+    data: {}
+  mode: single
